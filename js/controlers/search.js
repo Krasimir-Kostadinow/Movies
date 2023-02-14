@@ -9,17 +9,24 @@ export default async function search(context) {
     const { searchName } = this.params;
 
     try {
-    let result = await searchMovie(searchName);
-    if (result.errorData) {
-        throw new Error(result.message);
-    }
-    userInfo.searchMovies = result;
-    notificationBox(`Your search has found ${result.length} results.`, successBoxEl);
-    localStorage.setItem('userInfo', JSON.stringify(userInfo));
-    setTimeout(() => {
-        this.redirect('#/home');
-    },3000);
- 
+        let result = await searchMovie(searchName);
+        if (result.errorData) {
+            throw new Error(result.message);
+        }
+
+        userInfo.searchMovies = result;
+        if (result.length > 0) {
+            notificationBox(`Found ${result.length} movies with the title ${searchName}`, successBoxEl);
+            setTimeout(() => {
+                this.redirect('#/home');
+            }, 3000);
+        } else {
+            notificationBox(`Found ${result.length} movies with the title ${searchName}`, errorBoxEl);
+        }
+
+        localStorage.setItem('userInfo', JSON.stringify(userInfo));
+      
+
     } catch (error) {
         notificationBox(error.message, errorBoxEl);
     }

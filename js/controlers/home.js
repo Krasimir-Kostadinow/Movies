@@ -17,5 +17,7 @@ export default async function home(context) {
         'footer': await this.load('./templates/footer.hbs')
     }
 
-    this.partial('./templates/home.hbs')
+    this.partial('./templates/home.hbs');
+    userInfo.searchMovies = null;
+    localStorage.setItem('userInfo', JSON.stringify(userInfo));
 };

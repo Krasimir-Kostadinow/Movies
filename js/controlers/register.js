@@ -51,12 +51,16 @@ export async function postRegister(context) {
 
     try {
         let result = await registerUser(username, password);
-    
+
         if (result.hasOwnProperty('errorData')) {
             throw new Error(result.message);
         }
         notificationBox('Successful registration!', successBoxEl);
-        this.redirect('#/login');
+
+        setTimeout(() => {
+            this.redirect('#/login');
+        }, 3000);
+
 
     } catch (error) {
         notificationBox(error.message, errorBoxEl);
