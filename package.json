@@ -1,0 +1,19 @@
+{
+  "name": "movies",
+  "version": "1.0.0",
+  "description": "<h1>Movies test app</h1>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Krasimir-Kostadinow/Movies.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Krasimir-Kostadinow/Movies/issues"
+  },
+  "homepage": "https://github.com/Krasimir-Kostadinow/Movies#readme"
+}
