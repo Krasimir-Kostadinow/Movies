@@ -1,2 +1,2 @@
-# Movie
-<h1>Movie test app</h1>
+# Movies
+<h1>Movies test app</h1>
