@@ -1,6 +1,7 @@
 import { getAllMovies } from "../data.js";
 export default async function home(context) {
-    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    let userInfo = JSON.parse(localStorage.getItem('userInfo'));
+
     if (userInfo) {
         context.userInfo = { isLogged: true, username: userInfo.userName };
         context.searchMovies = userInfo.searchMovies;
@@ -8,6 +9,8 @@ export default async function home(context) {
         if (movies !== []) {
             context.movies = movies;
         }
+    } else {
+        userInfo = {};
     }
 
     this.partials = {
